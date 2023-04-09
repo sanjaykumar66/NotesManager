@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import LoginComp  from './pages/LoginComp';
+import DashboardComp from "./pages/DashboardComp";
+import { onAuthStateChanged   } from "firebase/auth";
+import {auth} from './firebaseConfig';
+// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {updateAuth} from './actions/login'
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
+
+  // const user_det = useSelector(state=>state.user);
+  // const LoginError = useSelector(state=>state.LoginError);
+  const dispatch = useDispatch();
+  const navigate  = useNavigate();
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      dispatch(updateAuth(user.uid,false));
+      navigate('/dashboard');
+    }
+    else{
+      dispatch(updateAuth(false,false));
+      navigate('/');
+    }
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<LoginComp />} />
+          <Route path="/dashboard" element={<DashboardComp/>}/>
+        </Routes>
+      </div>
   );
 }
 
