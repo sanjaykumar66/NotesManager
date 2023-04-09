@@ -141,7 +141,7 @@ function NotesModalComp(props){
                                                     <PaperClipIcon className="-ml-1 mr-2 h-5 w-5 group-hover:text-gray-500" aria-hidden="true" />
                                                     <span className="text-sm italic text-gray-500 group-hover:text-gray-600">Attach a file</span>
                                                     </button>
-                                                    <input onChange={handleFileChange} id="notes_files" name="notes_files" type="file" className="sr-only"/>
+                                                    <input onChange={handleFileChange} accept="image/*" capture="camera" id="notes_files" name="notes_files" type="file" className="sr-only"/>
 
                                                     {file?<div>{file.name}</div>:<></>}
                                                 </div>
