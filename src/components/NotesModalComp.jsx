@@ -29,8 +29,6 @@ function NotesModalComp(props){
 
     const handleSubmit= (e)  => {
         e.preventDefault();
-        console.log(name)
-        console.log(note)
         setButtonLoader(true);
         dispatch(AddNotes({user:props.user,name, note,file,callBackFunction}));
     }

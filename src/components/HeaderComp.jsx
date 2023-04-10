@@ -1,13 +1,29 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { ChangeTab } from "../actions/dashboard.js";
+import { useEffect } from 'react';
+
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ')
+}
+
+function HeaderComp(props){
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(ChangeTab(props.tabName));
+  }, [dispatch, props.tabName]);
+
+  const TabToggle = (tab)=>{
+    dispatch(ChangeTab(tab));
   }
 
-function HeaderComp(){
-    return(
+  return(
         <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
@@ -28,15 +44,19 @@ function HeaderComp(){
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <a
-                    href="/"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
-                  >
+                    // href="/"
+                    className={classNames(props.tabName==='Bills' ? 'border-indigo-500 text-gray-900' : 'cursor-pointer border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', 'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium')}
+                    onClick={()=>TabToggle('Bills')}
+                 >
                     Bills
                   </a>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <a
-                    href="/"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    // href="/"
+                    className={classNames(props.tabName==='Notes' ? 'border-indigo-500 text-gray-900' : 'cursor-pointer border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', 'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium ')}
+                    onClick={()=>TabToggle('Notes')}
                   >
                     Notes
                   </a>
@@ -188,6 +208,22 @@ function HeaderComp(){
         </>
       )}
     </Disclosure>
-    )
+  )
+  
 }
-export default HeaderComp;
+
+
+const mapStateToProps = (state) => {
+  return {
+    tabName: state.Dashboard.tabName,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ChangeTab: (tab) => dispatch(ChangeTab(tab)),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComp);
