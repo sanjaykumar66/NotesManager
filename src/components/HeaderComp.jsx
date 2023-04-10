@@ -33,13 +33,13 @@ function HeaderComp(props){
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
+                    src={`${process.env.PUBLIC_URL}/Logo.jpg`}
+                    alt="Bills & Notes Manager"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
+                    src={`${process.env.PUBLIC_URL}/Logo.jpg`}
+                    alt="Bills & Notes Manager"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
