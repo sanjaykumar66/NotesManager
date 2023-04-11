@@ -19,7 +19,7 @@ export function AddNotes({user, name, note, file,callBackFunction}){
             temp[key.id].timestamp = time;
 
             if(file){
-                var Path = user+'/'+new Date().getTime()+'_'+file.name;
+                var Path = user+'/Notes/'+new Date().getTime()+'_'+file.name;
                 const storage_1 = StorageRef(storage, Path);
                 uploadBytes(storage_1, file).then((snapshot) => {
                     console.log('Uploaded a blob or file!');

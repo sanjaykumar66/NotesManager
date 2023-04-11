@@ -5,7 +5,7 @@ import store from '../store';
 
 export function Addbills({user, billName, selected, totalAmount, file,callBackFunction}){
     return dispatch=>{
-            var Path = user+'/'+new Date().getTime()+'_'+file.name;
+            var Path = user+'/Bills/'+new Date().getTime()+'_'+file.name;
             const storage_1 = StorageRef(storage, Path);
             uploadBytes(storage_1, file).then((snapshot) => {
                 console.log('Uploaded a blob or file!');

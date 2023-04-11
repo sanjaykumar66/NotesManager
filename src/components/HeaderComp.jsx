@@ -144,18 +144,22 @@ function HeaderComp(props){
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                // href="#"
+                onClick={()=>TabToggle('Bills')}
+                className={classNames(props.tabName==='Bills' ? 'border-indigo-500 bg-indigo-50 text-indigo-700' :'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700', 'block border-l-4 py-2 pl-3 pr-4 text-base font-medium ')}
               >
                 Bills
               </Disclosure.Button>
+               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-              >
+                // href="#"
+                className={classNames(props.tabName==='Notes' ? 'border-indigo-500 bg-indigo-50 text-indigo-700' :'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700', 'block border-l-4 py-2 pl-3 pr-4 text-base font-medium ')}
+                onClick={()=>TabToggle('Notes')}
+             >
                 Notes
               </Disclosure.Button>
             </div>
