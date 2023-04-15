@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { ChangeTab } from "../actions/dashboard.js";
@@ -63,13 +63,13 @@ function HeaderComp(props){
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <button
+                {/* <button
                   type="button"
                   className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </button> */}
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -93,7 +93,7 @@ function HeaderComp(props){
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href="/"
@@ -102,8 +102,8 @@ function HeaderComp(props){
                             Your Profile
                           </a>
                         )}
-                      </Menu.Item>
-                      <Menu.Item>
+                      </Menu.Item> */}
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href="/"
@@ -112,7 +112,7 @@ function HeaderComp(props){
                             Settings
                           </a>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -172,20 +172,20 @@ function HeaderComp(props){
                     alt=""
                   />
                 </div>
-                <div className="ml-3">
+                {/* <div className="ml-3">
                   <div className="text-base font-medium text-gray-800">Tom Cook</div>
                   <div className="text-sm font-medium text-gray-500">tom@example.com</div>
-                </div>
-                <button
+                </div> */}
+                {/* <button
                   type="button"
                   className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </button> */}
               </div>
               <div className="mt-3 space-y-1">
-                <Disclosure.Button
+                {/* <Disclosure.Button
                   as="a"
                   href="#"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
@@ -198,7 +198,7 @@ function HeaderComp(props){
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Settings
-                </Disclosure.Button>
+                </Disclosure.Button> */}
                 <Disclosure.Button
                   as="a"
                   href="#"
