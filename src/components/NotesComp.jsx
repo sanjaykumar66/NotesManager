@@ -22,9 +22,9 @@ function NotesComp(props){
             <div>
                 <div className="sm:flex sm:items-center">
                         <div className="sm:flex-auto">
-                            <h1 className="text-base font-semibold leading-6 text-gray-900">Bills</h1>
+                            <h1 className="text-base font-semibold leading-6 text-gray-900">Notes</h1>
                             <p className="mt-2 text-sm text-gray-700">
-                                A list of all the users in your account including their name, title, email and role.
+                                Stay organized and achieve your goals with Notes Manager.
                             </p>
                         </div>
                         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none flex gap-x-5">
