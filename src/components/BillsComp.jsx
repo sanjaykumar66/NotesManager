@@ -227,58 +227,59 @@ function BillsComp(props){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {Object.values(props.bills).map((person, personIdx) => (
-                                        <tr key={personIdx}>
+                                    {Object.values(props.bills).filter(bill => activeFilters.length === 0 || activeFilters.includes(bill.category))
+                                    .map((bill, billIdx) => (
+                                        <tr key={billIdx}>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    bill !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                                                 )}
                                             >
-                                                {person.timestamp}
+                                                {bill.timestamp}
                                             </td>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    bill !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'whitespace-nowrap px-3 py-4 text-sm text-gray-500 table-cell'
                                                 )}
                                             >
-                                                {person.name}
+                                                {bill.name}
                                             </td>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    bill !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'whitespace-nowrap px-3 py-4 text-sm text-gray-500 table-cell'
                                                 )}
                                             >
-                                                {person.category}
+                                                {bill.category}
                                             </td>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    billIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'whitespace-nowrap px-3 py-4 text-sm text-gray-500 table-cell'
                                                 )}
                                             >
-                                                {person.amount}
+                                                {bill.amount}
                                             </td>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    billIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'whitespace-nowrap px-3 py-4 text-sm text-gray-500 table-cell'
                                                 )}
                                             >
-                                                <a href={person.file} target="_blank" rel="noreferrer">
+                                                <a href={bill.file} target="_blank" rel="noreferrer">
                                                     <PhotoIcon className="h-5 w-5 text-indigo-600"/>
                                                 </a>
                                             </td>
                                             <td
                                                 className={classNames(
-                                                personIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
+                                                    billIdx !== people.length - 1 ? 'border-b border-gray-200' : '',
                                                 'relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-8 lg:pr-8'
                                                 )}
                                             >
                                                 <div className="text-indigo-600 hover:text-indigo-900">
-                                                Edit<span className="sr-only">, {person.name}</span>
+                                                Edit<span className="sr-only">, {bill.name}</span>
                                                 </div>
                                             </td>
                                         </tr>
